@@ -7,5 +7,7 @@ function getMC2() : string
     return "Albert Einstein";
 }
 
+echo getMC2();
+
 ?>
 
