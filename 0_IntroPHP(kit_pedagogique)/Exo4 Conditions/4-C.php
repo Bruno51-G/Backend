@@ -5,7 +5,12 @@ Si au moins 2 des valeurs fournies sont égales la fonction retourne 0. */
 
 function getMax(float $a, float $b, float $c) : float
 {
-    return max($a, $b, $c);
+    if ($a == $b || $a == $c || $b ==$c)
+        {
+            return 0;
+        } else {
+            return max($a, $b, $c);
+        }
 }
 
 $valeur1 = readline("Entrez la valeur a : ");
