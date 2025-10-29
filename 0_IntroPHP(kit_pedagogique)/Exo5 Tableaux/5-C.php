@@ -16,6 +16,8 @@ function sortItems(array $myArray) : array
 $names = (["Zoé", "Martin", "Alison", "Christophe", "Vanérie", "William", "Damien"]);
 $sortName = sortItems($names);
 print_r($sortName);
+/*echo implode(', ', $sortName); // Permet d'afficher les éléments du tableau en ligne et séparé 
+                                d'une virgule. */
 
 ?>
 
