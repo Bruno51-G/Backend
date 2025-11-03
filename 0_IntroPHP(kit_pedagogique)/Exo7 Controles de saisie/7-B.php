@@ -25,7 +25,6 @@ function controlPassword(string $password) : bool
             return false;
         }
 
-
         // Regex pour :
         // Au moins 1 chiffre (\d)
         // Au moins 1 majuscule ([A-Z])
