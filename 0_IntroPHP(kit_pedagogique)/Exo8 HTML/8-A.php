@@ -7,5 +7,29 @@ La fonction retourne une liste HTML (ul > li).
 - Les éléments sont affichés par ordre alphabétique.
 - Si le tableau est vide, la fonction retourne « Aucun résultat » à la place de la liste HTML. */
 
+function htmlList(string $listName, array $itemsList) : string
+{
+    // Si le tableau est vide
+    if (empty($itemsList))
+    {
+        return "Aucun résultat.";
+    }
+
+    // Trie par ordre alphabétique
+    sort($itemsList);
+
+    //liste HTML
+    $html = "<h3>$listName</h3>\n<ul>\n";
+        foreach ($itemsList as $item) {
+            $html .=" <li>" . htmlspecialchars($item) . "<\li>\n";
+        }
+        $html .= "<\ul>";
+
+    return $html;
+}
+
+$names = ["Jack", "Joe", "Léa", "Néo", "Zoé"];
+echo htmlList("Liste de noms", $names);
 
 ?>
+
