@@ -1,0 +1,22 @@
+<?php
+class Contribuable{
+    // Attribut 
+    private string $nom;
+    private float $revenuAnnuel;
+
+    private const TAUX1=0.09;
+    private const TAUX2=0.14;
+
+    public function getNom():string{return $this->nom;}
+    public function getRevenuAnnuel():float{return $this->revenuAnnuel;}
+
+    public function setRevenuAnnuel(float $newRevenuAnnuel):void{$this->revenuAnnuel=$newRevenuAnnuel;}
+
+    public function __construct(string $_nom, float $newRevenuAnnuel)
+    {
+        $this->nom=$_nom;
+        $this->revenuAnnuel=$newRevenuAnnuel;
+    }
+
+    public function calculImpot(){}
+}
