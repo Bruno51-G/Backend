@@ -10,6 +10,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     try{
         // Instancier un objet Contribuable
-        
+        $contribuable = new Contribuable($nom, $revenu);
+
+        // Calculer l'impôt
+        $impot = $contribuable->calculImpot();
+    } catch (InvalidArgumentException $e){
+        // Gérer les erreurs comme les revenu négatif
+        die("Erreur : " . $e->getMessage());
     }
 }
+
+?>
