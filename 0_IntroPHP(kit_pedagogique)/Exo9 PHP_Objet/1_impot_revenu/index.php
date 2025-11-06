@@ -1,3 +1,12 @@
+<?php
+
+require_once 'Contribuable.php;';
+require_once 'resultatImpot.php';
+
+$resul = display();
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>

@@ -1,23 +1,20 @@
 <?php
-// Inclure la classe Contribuable
-require_once '../models/Contribuable.php';
+require_once 'Contribuable.php';
 
-// Vérifier si les données du formulaire sont envoyées
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-    // Récupère les données du formulaire
-    $nom = htmlspecialchars($_POST['nom']); // Échape les caractères spéciaux pour la sécurité
-    $revenu = (float)$_POST['revenu']; // Convertit le revenu en float
+function display():string{
+    $result='';
+    if ($_SERVER["REQUEST_METHOD"] == "POST"){
+        if(isset($_POST["send"])){
+            if(empty($_POST["nom"]) || empty($_POST["revenu"])){
+                echo('Le formulaire est incomplet');
+            } else {
+                $name = htmlspecialchars(($_POST["nom"]));
+                    $income = floatval($_POST["revenu"]);
 
-    try{
-        // Instancier un objet Contribuable
-        $contribuable = new Contribuable($nom, $revenu);
-
-        // Calculer l'impôt
-        $impot = $contribuable->calculImpot();
-    } catch (InvalidArgumentException $e){
-        // Gérer les erreurs comme les revenu négatif
-        die("Erreur : " . $e->getMessage());
+                $contrib = new Contribuable($name, $income);
+                $result = " Votre impôt est de " . $contrib->calculImpot(). " €";
+            }
+        }
     }
+    return $result;
 }
-
-?>
