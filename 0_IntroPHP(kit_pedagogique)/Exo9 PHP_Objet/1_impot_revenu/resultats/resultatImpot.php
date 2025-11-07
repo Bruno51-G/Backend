@@ -1,6 +1,4 @@
 <?php
-require_once 'Contribuable.php';
-
 function display():string{
     $result='';
     if ($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -18,3 +16,4 @@ function display():string{
     }
     return $result;
 }
+

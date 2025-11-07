@@ -73,7 +73,7 @@ button:hover {
 
 input[readonly] {
     background-color: #c2efe8; /* Fond spécifique pour l'input en lecture seule */
-    color: white; /* Texte en blanc pour un bon contraste sur le fond coloré */
+    color: black; /* Texte en noir pour un bon contraste sur le fond coloré */
     font-weight: bold;
 }
 input[readonly]:focus {

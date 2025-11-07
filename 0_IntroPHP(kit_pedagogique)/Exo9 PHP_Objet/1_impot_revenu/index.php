@@ -1,12 +1,3 @@
-<?php
-
-require_once 'Contribuable.php;';
-require_once 'resultatImpot.php';
-
-$resul = display();
-
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -19,10 +10,13 @@ $resul = display();
 
 <?php
 
+require "./resultats/resultatImpot.php";
+require "./models/Contribuable.php";
+$res=display();
 
 ?>
     <div class="container">
-        <form>
+        <form action="index.php" method="POST">
             <fieldset>
                 <legend>Calcul de l'Impôt sur le Revenu</legend>
 
@@ -32,10 +26,10 @@ $resul = display();
                 <label for="revenu">Revenu Annuel</label>
                 <input type="number" id="revenu" name="revenu" min="0" required>
 
-                <button type="submit">Calculer</button>
+                <button type="submit" name="send">Calculer</button>
 
                 <label for="impot">Impôt sur le revenu annuel</label>
-                <input type="text" id="impot" name="impot" readonly>
+                <input type="text" id="impot" name="impot" value="<?php echo $res??"0" ?>" readonly>
 
             </fieldset>
         </form>
