@@ -68,6 +68,59 @@ class RestaurantRepository{
         $stmt->execute();
         return $stmt->fetchAll();
     }
+
+    public function searchByPrix(float $limite_inf, float $limite_sup): bool|array
+    {
+        $stmt = $this->dbConnect->prepare("CALL afficherFourchettePrix(:limiteInf, :limiteSup)");
+        $stmt->execute([":limiteInf" => $limite_inf, ":limiteSup" => $limite_sup]);
+
+        // $stmt->execute([1=>$limite_inf, 2=>$limite_sup]);
+        return $stmt->fetchAll();
+    }
+
+    public function createRestaurant(string $_nom, string $_adresse, float $_prix, string $_commentaire, float $_note, DateTime $_visite): bool
+    {
+        $nom = htmlspecialchars($_nom);
+        $adresse = htmlspecialchars($_adresse);
+        $prix = htmlspecialchars($_prix);
+        $commentaire = htmlspecialchars($_commentaire);
+        $note = floatval($_note);
+        $maDate = $_visite->format('Y-m-d');
+        // $maDate = date_format($_visite, 'Y-m-d');
+
+        $rq = "INSERT INTO restaurants (nom, adresse, prix, commentaire, note, visite) VALUES (:nom, :adresse, :prix, :commentaire, :note, :visite)";
+        $PDOstmt = $this->dbConnect->prepare($rq);
+        $PDOstmt->bindValue(":nom", $nom);
+        $PDOstmt->bindValue(":adresse", $adresse);
+        $PDOstmt->bindValue(":prix", $prix);
+        $PDOstmt->bindValue(":commentaire", $commentaire);
+        $PDOstmt->bindValue(":note", $note);
+        $PDOstmt->bindValue(":visite", $maDate);
+        return $PDOstmt->execute();
+    }
     
+    public function deleteRestaurant(int $_id): bool
+    {
+        $rq = "DELETE FROM restaurants WHERE id = :ID";
+        $PDOstmt = $this->dbConnect->prepare($rq);
+        $PDOstmt->bindValue(":ID", $_id, PDO::PARAM_INT);
+        return $PDOstmt->execute();
+    }
+
+    public function updateRestaurant(int $_id, string $_nom, string $_adresse, float $_prix, string $_commentaire, float $_note, string $_visite): bool
+    {
+        $rq = "UPDATE restaurants SET nom = :nom, adresse = :adresse, prix = :prix, commentaire = :commentaire, note = :note, visite = :visite WHERE id = :ID";
+        $PDOstmt = $this->dbConnect->prepare($rq);
+        $PDOstmt->bindValue(":ID", $_id, PDO::PARAM_INT);
+        $PDOstmt->bindValue(":nom", $_nom);
+        $PDOstmt->bindValue(":adresse", $_adresse);
+        $PDOstmt->bindValue(":prix", $_prix);
+        $PDOstmt->bindValue(":commentaire", $_commentaire);
+        $PDOstmt->bindValue(":note", $_note);
+        $PDOstmt->bindValue(":visite", $_visite);
+        return $PDOstmt->execute();
+    }
+
 
 }
+

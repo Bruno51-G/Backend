@@ -5,8 +5,7 @@ function afficherTableau(array $data) :string
     $chaine = "<table><thead><tr>";
     foreach($data[0] as $key => $value)
         {
-            $chaine.="<th>".$key."</th>";  
-
+            $chaine.="<th>".$key."</th>";
         }
 
         $chaine.="</tr></thead><tbody>";
@@ -18,7 +17,6 @@ function afficherTableau(array $data) :string
             foreach ($data[$i] as $key => $value) {
                 $chaine.="<td>".$value."</td>";
             }
-            
 
             $chaine.="</tr>";
         } $chaine.="</tbody></table>";

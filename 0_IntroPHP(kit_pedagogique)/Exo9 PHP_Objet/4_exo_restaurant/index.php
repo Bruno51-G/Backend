@@ -40,5 +40,11 @@ echo afficherTableau($mesData);
 
 ?>
 </body>
+<script>
+    const monBouton = document.querySelector("#boutonResto");
+    monBouton.addEventListener("click", function(){
+        window.location.href='./creationFormulaire.php';
+    })
+</script>
 </html>
 

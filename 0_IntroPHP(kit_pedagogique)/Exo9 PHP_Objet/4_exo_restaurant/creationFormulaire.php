@@ -48,12 +48,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/formulaire.css">
+    <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
     <title>Gestion de listes des critiques de restaurants</title>
 </head>
 <body>
     <div class="container">
-        <h1>Ajouter un Restaurants</h1>
-        <?php echo $msg; ?>
+        <h1><img class="texteDeco" src="./assets/img/textDeco2.png" alt="Décoration de texte à gauche">
+        Ajouter un Restaurants
+        <img class="texteDeco" src="./assets/img/textDeco1.png" alt="Décoration de texte à droite"></h1>
+        
+        <div class="message">
+            <?php echo $msg; ?>
+        </div>
+
         <form action="#" method="POST">
 
             <div class="form-group">
@@ -86,7 +93,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                 <input type="date" id="date" name="date" required>
             </div>
 
-            <button type="submit">Enregistrer le Restaurants</button>
+            <button type="submit">Enregistrer le Restaurant</button>
 
         </form>
 
