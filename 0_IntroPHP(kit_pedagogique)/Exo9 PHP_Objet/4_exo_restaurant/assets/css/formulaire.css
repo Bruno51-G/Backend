@@ -1,11 +1,15 @@
-h1{
+h1 {
     font-family: Allura, cursive, Arial, Helvetica, sans-serif;
     font-size: 75px;
     font-weight: 100;
-    width: 800px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 750px;
 }
 
-.texteDeco{
+.texteDeco {
     width: 65px;
 }
 
@@ -18,10 +22,12 @@ body {
     background-color: #F0F0F2;
 }
 
-.message{
-    font-size: 30px;
+.message {
+    font-family: Allura, cursive, Arial, Helvetica, sans-serif;
+    font-size: 40px;
     margin-bottom: 20px;
     text-decoration: underline;
+    text-align: center;
 }
 
 .container {
@@ -29,9 +35,13 @@ body {
     max-width: 600px;
     padding: 40px 20px;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 form {
+    background-color: #D9E6F2;
     width: 100%;
     max-width: 500px;
     padding: 20px;
@@ -43,12 +53,14 @@ form {
 
 .form-group {
     margin-bottom: 15px;
+    width: 100%;
 }
 
 .form-group label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
+    text-align: left;
 }
 
 .form-group input[type="text"],
@@ -63,16 +75,61 @@ form {
 }
 
 button {
-    background-color: inherit;
+    background-color: #063e91;
+    color: #FFFFFF;
     border: 1px solid #000000;
     padding: 10px 15px;
     border-radius: 4px;
     cursor: pointer;
     font-weight: bold;
     display: block;
-    margin: 0 auto;
+    margin: 20px auto 0;
+    transition: transform 0.5s ease;
 }
 
 button:hover {
-    background-color: #f5f5f5;
+    background-color: #87CEEB;
+    color: #000000;
+    box-shadow: 10px 10px 10px #000000;
+    transform: scale(1.05);
+}
+
+input:hover{
+    background: #F0F0F2;
+    background: linear-gradient(90deg, #F0F0F2 17%, #87CEEB);
+}
+
+textarea:hover{
+    background: #F0F0F2;
+    background: linear-gradient(90deg, #F0F0F2 17%, #87CEEB);
+}
+
+.boutonRetour{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    bottom: 35px;
+    right: 20px;
+    gap: 5px;
+    border: 2px solid #000000;
+    border-radius: 4px;
+    padding: 5px;
+    transition: transform 0.5s ease;
+}
+
+.boutonRetour:hover{
+    background-color: #D9E6F2;
+    transform: scale(1.05);
+}
+
+.imgRetour{
+    width: 50px;
+}
+
+.texteRetour{
+    margin: 0;
+    font-size: 14px;
+    text-align: center;
+    color: #000000;
 }

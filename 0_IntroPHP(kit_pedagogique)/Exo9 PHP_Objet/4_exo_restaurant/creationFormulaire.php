@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 <body>
     <div class="container">
         <h1><img class="texteDeco" src="./assets/img/textDeco2.png" alt="Décoration de texte à gauche">
-        Ajouter un Restaurants
+        Ajouter un Restaurant
         <img class="texteDeco" src="./assets/img/textDeco1.png" alt="Décoration de texte à droite"></h1>
         
         <div class="message">
@@ -95,8 +95,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
             <button type="submit">Enregistrer le Restaurant</button>
 
+            
+
         </form>
 
     </div>
+        <a href="./index.php">
+            <div class="boutonRetour">    
+                <img class="imgRetour" src="./assets/img/retour.png" alt="Bouton de retour">
+                <p class="texteRetour">Retour au tableau</p>
+            </div>
+        </a>
 </body>
 </html>
