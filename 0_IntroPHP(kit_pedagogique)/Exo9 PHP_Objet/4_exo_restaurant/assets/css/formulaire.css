@@ -85,12 +85,18 @@ button {
     display: block;
     margin: 20px auto 0;
     transition: transform 0.5s ease;
+    transition: transform 0.1s, box-shadow 0.1s;
+    box-shadow: 0 4px #000000;
+}
+
+button:active{
+    transform: translateY(4px) scale(0.98);
+    box-shadow: 0 0 0 #000000;
 }
 
 button:hover {
     background-color: #87CEEB;
     color: #000000;
-    box-shadow: 10px 10px 10px #000000;
     transform: scale(1.05);
 }
 
@@ -116,11 +122,18 @@ textarea:hover{
     border-radius: 4px;
     padding: 5px;
     transition: transform 0.5s ease;
+    transition: transform 0.1s, box-shadow 0.1s;
+    box-shadow: 0 4px #000000;
 }
 
 .boutonRetour:hover{
     background-color: #D9E6F2;
     transform: scale(1.05);
+}
+
+.boutonRetour:active{
+    transform: translateY(4px) scale(0.98);
+    box-shadow: 0 0 0 #000000;
 }
 
 .imgRetour{

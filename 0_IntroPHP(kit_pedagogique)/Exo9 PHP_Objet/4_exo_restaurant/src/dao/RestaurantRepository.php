@@ -107,8 +107,15 @@ class RestaurantRepository{
         return $PDOstmt->execute();
     }
 
-    public function updateRestaurant(int $_id, string $_nom, string $_adresse, float $_prix, string $_commentaire, float $_note, string $_visite): bool
+    public function updateRestaurant(int $_id, string $_nom, string $_adresse, float $_prix, string $_commentaire, float $_note, DateTime $_visite): bool
     {
+        $nom = trim($_nom);
+        $adresse = trim($_adresse);
+        $prix = floatval($_prix);
+        $commentaire = trim($_commentaire);
+        $note = intval($_note);
+        $ladate = $_visite->format('Y-m-d');
+        
         $rq = "UPDATE restaurants SET nom = :nom, adresse = :adresse, prix = :prix, commentaire = :commentaire, note = :note, visite = :visite WHERE id = :ID";
         $PDOstmt = $this->dbConnect->prepare($rq);
         $PDOstmt->bindValue(":ID", $_id, PDO::PARAM_INT);
@@ -119,6 +126,20 @@ class RestaurantRepository{
         $PDOstmt->bindValue(":note", $_note);
         $PDOstmt->bindValue(":visite", $_visite);
         return $PDOstmt->execute();
+    }
+
+    public function updateRestaurantBis(int $_id, string $_nom, string $_adresse, float $_prix, string $_commentaire, float $_note, DateTime $_visite): bool
+    {
+        $nom=trim($_nom);
+        $adresse=trim($_adresse);
+        $prix=floatval($_prix);
+        $commentaire=trim($_commentaire);
+        $note=intval($_note);
+        $ladate=$_visite->format('Y-m-d');
+
+        $rq = "UPDATE restaurants SET nom = ?, adresse = ?, prix = ?, commentaire = ?, note = ?, visite = ? WHERE id = ?";
+        $PDOstmt = $this->dbConnect->prepare($rq);
+        return $PDOstmt->execute([$nom, $adresse, $prix, $commentaire, $note, $ladate, $_id]);
     }
 
 
