@@ -36,10 +36,6 @@ tbody td:nth-child(5){
     text-align: left;
 }
 
-tbody tr:nth-child(1) td:nth-child(5){
-    font-size: 12px;
-}
-
 thead{
     text-transform: uppercase;
 }

@@ -2,7 +2,7 @@
 
 final class Dbconnexion{
 
-    private static ?PDO $connexion=null;
+    private static ?PDO $connexion = null;
     private static $host;
     private static $base;
     private static $user;
@@ -22,7 +22,7 @@ final class Dbconnexion{
         self::$base = $config['base'];
         self::$user = $config['user'];
         self::$pass = $config['pass'];
-        self::$port = $config['port']??3306;
+        self::$port = $config['port'] ?? 3306;
     } 
 
     public static function getInstance() : PDO 
