@@ -13,7 +13,7 @@ class RestaurantRepository{
     public function searchAll():array
     {
         $data = [];
-        $rq = "Select nom, adresse, prix, commentaire, note, visite from restaurants";
+        $rq = "Select id, nom, adresse, prix, commentaire, note, visite from restaurants";
 
         $stmt = $this->dbConnect->query($rq);  //stmt --> PDO statements
 
@@ -80,10 +80,10 @@ class RestaurantRepository{
 
     public function createRestaurant(string $_nom, string $_adresse, float $_prix, string $_commentaire, float $_note, DateTime $_visite): bool
     {
-        $nom = htmlspecialchars($_nom);
-        $adresse = htmlspecialchars($_adresse);
-        $prix = htmlspecialchars($_prix);
-        $commentaire = htmlspecialchars($_commentaire);
+        $nom = trim($_nom);
+        $adresse = trim($_adresse);
+        $prix = floatval($_prix);
+        $commentaire = trim($_commentaire);
         $note = floatval($_note);
         $maDate = $_visite->format('Y-m-d');
         // $maDate = date_format($_visite, 'Y-m-d');

@@ -12,14 +12,14 @@ if (!isset($_GET['id']) || empty($_GET['id']) || !is_numeric($_GET['id']))
     {
         $id=(int)$_GET['id'];
         //tableau de la ligne du restaurant sélectionné
-        $restaurantData = $objReste->searchById($id);
+        $restaurantData = $objResto->searchById($id);
         if (!$restaurantData)
         {
             die("Restaurant non trouvé !");
         }
 
         $msg="";
-        if($_server["REQUEST_METHOD"]=="POST")
+        if($_SERVER["REQUEST_METHOD"]=="POST")
             {
                 if (!empty($_POST["nom"]) && !empty($_POST["adresse"]) && !empty($_POST["prix"]) 
                     && !empty($_POST["commentaire"]) && !empty($_POST["note"]) && !empty($_POST["visite"]))
@@ -39,7 +39,7 @@ if (!isset($_GET['id']) || empty($_GET['id']) || !is_numeric($_GET['id']))
                         $test = $objResto->updateRestaurantBis($id, $_POST["nom"], $_POST["adresse"], $_POST["prix"], $_POST["commentaire"], $_POST["note"], $ddate);
                         if ($test)
                             {
-                                header('Location:http://localhost/restaurant/index.php');
+                                header('Location:http://localhost/4_EXO_RESTAURANT/index.php');
                                 exit;
                             }
                             else
@@ -68,13 +68,15 @@ if (!isset($_GET['id']) || empty($_GET['id']) || !is_numeric($_GET['id']))
 </head>
 <body>
     <div class="container">
-        <h1>Modifier la critique Restaurant numéro <?php echo $id??"indéterminé" ?></h1>
+        <h1><img class="texteDeco" src="./assets/img/textDeco2.png" alt="Décoration de texte à gauche">
+        Modifier la critique Restaurant numéro <?php echo $id??"indéterminé" ?>
+        <img class="texteDeco" src="./assets/img/textDeco1.png" alt="Décoration de texte à droite"></h1>
         <?php echo $msg; ?>
         <form action="#" method="POST">
 
             <div class="form-group">
                 <label for="nom">Nom du Restaurant :</label>
-                <input type="text" id="nom" name="nom" required maxlength="100" value="<?php echo htmlspecialchars($restaurantsData['nom']) ??''; ?>">
+                <input type="text" id="nom" name="nom" required maxlength="100" value="<?php echo htmlspecialchars($restaurantData['nom']) ??''; ?>">
             </div>
 
             <div class="form-group">
@@ -106,7 +108,16 @@ if (!isset($_GET['id']) || empty($_GET['id']) || !is_numeric($_GET['id']))
 
         </form>
 
+        <a href="./index.php">
+            <div class="boutonRetour">    
+                <img class="imgRetour" src="./assets/img/retour.png" alt="Bouton de retour">
+                <p class="texteRetour">Retour au tableau</p>
+            </div>
+        </a>
+
     </div>
+
+    
     
 </body>
 </html>

@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     Critiques de restaurants
     <img class="texteDeco" src="./assets/img/textDeco1.png" alt="Décoration de texte à droite"></h1>
 
-    <input type="button" value="Créer une critique" id="boutonResto">
+    <input class="creaCritique" type="button" value="Créer une critique" id="boutonResto">
 
     <?php
 
@@ -57,6 +57,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     echo afficherTableau($objResto->searchAll());
 
     ?>
+
+    <footer>
+        <p>© Bruno GODBILLOT</p>
+        <p>Exercice : 4_EXO_RESTAURANT</p>
+    </footer>
 
 </body>
 <script>

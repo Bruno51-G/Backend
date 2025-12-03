@@ -20,6 +20,12 @@ h1{
     font-weight: 100;
 }
 
+.creaCritique{
+    margin-left: 190px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
 .texteDeco{
     width: 65px;
 }
@@ -119,6 +125,13 @@ table td:nth-child(7), table th:nth-child(7){
     background-color: #87CEEB;
     color: #000000;
     transform: scale(1.05);
+}
+
+footer{
+    background-color: #D9E6F2;
+    text-align: center;
+    margin-top: 60px;
+    padding: 10px;
 }
 
 

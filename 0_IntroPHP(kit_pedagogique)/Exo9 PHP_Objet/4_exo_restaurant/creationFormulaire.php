@@ -8,8 +8,8 @@ $objResto = new RestaurantRepository();
 $msg = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") 
     {
-        if (!empty($_POST["nom"]) && !empty($_POST["prix"]) && !empty($_post["commentaire"]) && 
-        !empty($_POST["note"]) && !empty($_POST ["visite"]))
+        if (!empty($_POST["nom"]) && !empty($_POST["prix"]) && !empty($_POST["commentaire"]) && 
+        !empty($_POST["note"]) && !empty($_POST["visite"]))
             {
                 try
                     {
@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                             throw new Exception('Erreur de format de la date : ' .$e->getMessage());
                         }
                     
-                    $test = $objResto->createRestaurant($_POST["nom"], $_POST["adresse"], $_POST["commentaire"], $_POST["prix"], $_POST["note"], $ddate);
+                    $test = $objResto->createRestaurant($_POST["nom"], $_POST["adresse"], $_POST["prix"], $_POST["commentaire"], $_POST["note"], $ddate);
 
                     if ($test)
                         {
@@ -90,7 +90,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
             <div class="form-group">
                 <label for="visite">Date de Visite :</label>
-                <input type="date" id="date" name="date" required>
+                <input type="date" id="visite" name="visite" required>
             </div>
 
             <button type="submit">Enregistrer le Restaurant</button>
