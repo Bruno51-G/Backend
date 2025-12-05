@@ -30,7 +30,7 @@ final class Dbconnexion{
         if(self::$connexion==null){
             self::setConfig();
             try {
-                self::$connexion = new PDO("mysql:host=".self::$host.";dbname=".self::$base.";port=".self::$port.";charset=utf8", 
+                self::$connexion = new PDO("mysql:host=".self::$host.";dbname=".self::$base.";port=".self::$port.";charset=utf8mb4", 
                 self::$user, self::$pass, [PDO::ATTR_DEFAULT_FETCH_MODE=>PDO::FETCH_ASSOC]);
             } catch (Exception $e) {
                 die("database connexion échoué :". $e->getMessage());
