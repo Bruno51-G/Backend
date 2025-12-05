@@ -1,0 +1,30 @@
+:root{
+    --vert1: #5E7C5F;
+    --vert2: #6B8E23;
+    --vert3: #2E8B57;
+    --vert4: #9DC183;
+    --rouge1: #800020;
+    --rouge2: #722F37;
+    --rouge3: #C1272D;
+    --rouge4: #9B111E;
+    --light: #FFFFFF;
+    --dark: #000000;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: "Barkerville", Arial, Helvetica, sans-serif;
+    font-size: 1.6rem;
+}
