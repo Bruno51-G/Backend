@@ -3,6 +3,7 @@
     --vert2: #6B8E23;
     --vert3: #2E8B57;
     --vert4: #9DC183;
+    --vert5:#C8E9B0;
     --rouge1: #800020;
     --rouge2: #722F37;
     --rouge3: #C1272D;
@@ -25,6 +26,84 @@ body{
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    font-family: "Barkerville", Arial, Helvetica, sans-serif;
+    font-family: "Libre Baskerville", Arial, Helvetica, sans-serif;
     font-size: 1.6rem;
+    box-sizing: border-box;
+    background-image: url(../img/fondExo5.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+form{
+    width: 100%;
+    max-width: 50rem;
+    padding: 2rem;
+    margin: 0 auto;
+    border: 0.2rem solid var(--rouge1);
+    border-radius: 0.4rem;
+    box-shadow: 0.9rem 0.9rem 0.9rem var(--dark);
+}
+
+label{
+    display: block;
+    margin-top: 1.5rem;
+    font-weight: bold;
+    color: var(--rouge1);
+}
+
+input, select{
+    width: 100%;
+    padding: 0.8rem;
+    margin-top: 0.5rem;
+    border: 0.2rem solid var(--rouge1);
+    border-radius: 0.4rem;
+    font-size: 1.6rem;
+}
+
+input:hover{
+    background: #FFFFFF;
+    background: linear-gradient(90deg, var(--light)
+                                31%, var(--rouge3)
+                                85%, var(--rouge1));
+}
+
+select:hover{
+    background: #FFFFFF;
+    background: linear-gradient(90deg, var(--light)
+                                31%, var(--rouge3)
+                                85%, var(--rouge1));
+}
+
+button{
+    display: block;
+    width: 30%;
+    padding: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+    border: 0.2rem solid var(--vert1);
+    color: var(--vert1);
+    background-color: var(--vert4);
+    font-size: 1.6rem;
+    cursor: pointer;
+    border-radius: 0.4rem;
+    transition: transform 0.5s ease;
+    font-size: 2rem;
+}
+
+button:hover{
+    transform: scale(1.2);
+    background-color: var(--vert5);
+}
+
+button:active{
+    transform: scale (0.9);
+}
+
+#summary {
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--rouge1);
 }

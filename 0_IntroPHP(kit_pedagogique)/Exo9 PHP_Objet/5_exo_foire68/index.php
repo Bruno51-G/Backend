@@ -12,15 +12,32 @@
     // Controlleur principal
     require "./src/dao/dbConnection.php";
     require "./src/dao/DepartmentRepository.php";
+    require "./src/dao/CandidateRepository.php";
+    require "./src/controllers/CtrlAccueil.php";
+    require "./src/controllers/CtrlInscription.php";
+    
+    if (isset($GET["page"]))
+        {
+            $patch = $_GET["page"] ?? "home";
+        } else {
+            $patch = "home";
+        }
 
-    $page = $_GET["page"] ?? 'home';
     switch ($page) {
         case 'inscription':
-            include "./src/views/inscription.php";
+            ctrlInscription();
+            break;
+
+        case 'home' :
+            ctrlAccueil();
+            break;
+
+        case 'login':
+            include "./src/views/login.php";
             break;
         
         default:
-            include "./src/views/home.php";
+            ctrlAccueil();
             break;
     }
 
