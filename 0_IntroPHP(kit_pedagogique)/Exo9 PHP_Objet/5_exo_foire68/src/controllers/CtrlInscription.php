@@ -42,4 +42,6 @@ function ctrlInscription()
             }
         }
     }
+
+    require "./src/views/inscription.php";
 }

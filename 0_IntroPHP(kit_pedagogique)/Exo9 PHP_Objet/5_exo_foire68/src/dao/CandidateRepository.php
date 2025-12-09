@@ -63,6 +63,19 @@ class CandidateRepository
             ':age'=>$data['age']
         ]);
     }
+
+    public function verifSign(string $email, string $password): array|false
+    {
+        $query = "SELECT id_user, lastname_user, firstname_user, mail_user, pass_user FROM candidats WHERE mail_user = :mail LIMIT 1";
+        $stmt = $this->dbconnect->prepare($query);
+        $stmt->execute([':mail' => $email]);
+        $user = $stmt->fetch();
+
+        if ($user && password_verify($password, $user['pass_user'])) {
+            return $user;
+        }
+        return false;
+    }
 }
 
 ?>

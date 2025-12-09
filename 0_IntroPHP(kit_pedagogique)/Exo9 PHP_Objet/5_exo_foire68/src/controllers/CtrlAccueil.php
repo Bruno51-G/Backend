@@ -1,6 +1,6 @@
 <?php
 
-function ctrlAccueil()
+function ctrlAccueil():void
 {
     $objCandidat = new candidateRepository();
 

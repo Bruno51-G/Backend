@@ -9,21 +9,31 @@
 </head>
 <body>
     <?php
+
+    session_start();
     // Controlleur principal
-    require "./src/dao/dbConnection.php";
+    require "./src/dao/DbConnection.php";
     require "./src/dao/DepartmentRepository.php";
     require "./src/dao/CandidateRepository.php";
     require "./src/controllers/CtrlAccueil.php";
     require "./src/controllers/CtrlInscription.php";
+    require "./src/controllers/CtrlLogin.php";
+    require "./src/controllers/Ctrlcompte.php";
     
-    if (isset($GET["page"]))
-        {
-            $patch = $_GET["page"] ?? "home";
-        } else {
-            $patch = "home";
-        }
+    // logout simple via ?logout=1
+    if (isset($_GET['logout']) && $_GET['logout'] == 1) {
+        session_unset();
+        session_destroy();
+        header('Location: index.php');
+        exit();
+    }
 
-    switch ($page) {
+    // inclure le header global
+    include __DIR__ . '/header.php';
+
+    $path = $_GET["page"] ?? "home";
+
+    switch ($path) {
         case 'inscription':
             ctrlInscription();
             break;
@@ -33,9 +43,14 @@
             break;
 
         case 'login':
-            include "./src/views/login.php";
+            ctrlLogin();
+            //include "./src/views/login.php";
             break;
         
+        case "compteperso":
+            ctrlCompte();
+            break;
+                
         default:
             ctrlAccueil();
             break;

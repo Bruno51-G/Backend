@@ -36,6 +36,8 @@ final class Dbconnexion{
                 die("database connexion échoué :". $e->getMessage());
             }
             
-        } return self::$connexion;
+        }
+        
+        return self::$connexion;
     } 
 }
