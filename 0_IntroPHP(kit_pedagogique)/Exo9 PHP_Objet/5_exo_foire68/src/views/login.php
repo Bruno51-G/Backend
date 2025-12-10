@@ -12,6 +12,6 @@
             <input type="password" id="motdepasse" name="motdepasse" required>
         </div>
 
-        <button type="submit">Se connecter</button>
+        <button class="buttonConnec" type="submit">Se connecter</button>
     </form>
 </div>

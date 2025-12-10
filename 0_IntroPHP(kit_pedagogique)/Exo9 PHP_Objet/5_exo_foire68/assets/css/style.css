@@ -37,49 +37,74 @@ body{
 }
 /* éviter que le header fixe cache le contenu */
 body{
-    padding-top: 8rem;
+    padding-top: 9.5rem;
 }
 
 /* Styles header/navigation */
 .site-header{
     width: 100%;
-    background: rgba(255,255,255,0.9);
+    background: rgba(255,255,255,0.95);
     border-bottom: 0.2rem solid var(--rouge1);
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 50;
 }
 .site-header__inner{
-    max-width: 1200px;
-    margin: 0 auto;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 1rem 2rem;
+    justify-content: flex-start;
+    padding: 1.5rem 2rem;
+    width: 100%;
 }
 .site-logo{
-    font-size: 2.4rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
     color: var(--rouge2);
     text-decoration: none;
     font-weight: 700;
 }
+.site-logo__text{ font-size: 2.8rem; }
+.site-logo__img{ height: 4.5rem; width: auto; display:block }
 .site-nav ul{
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
-    gap: 1.2rem;
+    gap: 1.8rem;
+}
+.site-nav{
+    margin-left: auto;
 }
 .site-nav a{
     color: var(--rouge1);
     text-decoration: none;
     font-weight: 600;
+    font-size: 1.4rem;
+    padding: 0.5rem;
 }
+
+.site-nav a:hover{
+    color: var(--light);
+}
+
 .site-user{
     display: flex;
     gap: 1rem;
     align-items: center;
 }
+
+.navHeader{
+    transition: transform 0.8s ease;
+}
+
+.navHeader:hover{
+    transform: scale(1.2);
+    background-color: var(--rouge1);
+}
+
 .user-logout{
     color: var(--vert2);
     text-decoration: none;
@@ -186,6 +211,10 @@ button{
     border-radius: 0.4rem;
     transition: transform 0.5s ease;
     font-size: 2rem;
+}
+
+.buttonConnec{
+    width: 20rem;
 }
 
 button:hover{

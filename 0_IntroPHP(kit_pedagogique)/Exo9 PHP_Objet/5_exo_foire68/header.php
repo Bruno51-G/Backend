@@ -3,7 +3,10 @@ if (session_status() !== PHP_SESSION_ACTIVE) session_start();
 ?>
 <header class="site-header" role="banner">
     <div class="site-header__inner">
-        <a class="site-logo" href="index.php?page=home">Foire aux vins</a>
+        <a class="site-logo" href="index.php?page=home">
+            <img src="./assets/img/raisin.png" alt="Raisin" class="site-logo__img">
+            <span class="site-logo__text">Foire aux vins</span>
+        </a>
 
         <button class="nav-toggle" id="navToggle" aria-controls="primary-navigation" aria-expanded="false" aria-label="Ouvrir le menu">
             <span class="hamburger"></span>
@@ -11,10 +14,10 @@ if (session_status() !== PHP_SESSION_ACTIVE) session_start();
 
         <nav id="primary-navigation" class="site-nav" role="navigation">
             <ul>
-                <li><a href="index.php?page=home">Accueil</a></li>
-                <li><a href="index.php?page=inscription">S'inscrire</a></li>
-                <li><a href="index.php?page=login">Se connecter</a></li>
-                <li><a href="index.php?page=compteperso">Mon compte</a></li>
+                <li class="navHeader"><a href="index.php?page=home">Accueil</a></li>
+                <li class="navHeader"><a href="index.php?page=inscription">S'inscrire</a></li>
+                <li class="navHeader"><a href="index.php?page=login">Se connecter</a></li>
+                <li class="navHeader"><a href="index.php?page=compteperso">Mon compte</a></li>
             </ul>
         </nav>
 
@@ -22,8 +25,6 @@ if (session_status() !== PHP_SESSION_ACTIVE) session_start();
             <?php if (!empty($_SESSION['user_id'])): ?>
                 <span class="user-greet">Bonjour <?= htmlspecialchars($_SESSION['nom'] ?? '') ?></span>
                 <a class="user-logout" href="index.php?page=home&logout=1">Déconnexion</a>
-            <?php else: ?>
-                <a class="btn btn-ghost" href="index.php?page=login">Se connecter</a>
             <?php endif; ?>
         </div>
     </div>
