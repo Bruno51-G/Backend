@@ -37,6 +37,8 @@ function ctrlInscription()
                     if ($test)
                     {
                         echo "Insersion candidat réussi.";
+                        header("Location: index.php?page=home");
+                        exit();
                     }
                 }
             }

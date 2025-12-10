@@ -3,7 +3,7 @@ if (session_status() !== PHP_SESSION_ACTIVE) session_start();
 ?>
 <header class="site-header" role="banner">
     <div class="site-header__inner">
-        <a class="site-logo" href="index.php?page=home">Foire aux vinx</a>
+        <a class="site-logo" href="index.php?page=home">Foire aux vins</a>
 
         <button class="nav-toggle" id="navToggle" aria-controls="primary-navigation" aria-expanded="false" aria-label="Ouvrir le menu">
             <span class="hamburger"></span>
